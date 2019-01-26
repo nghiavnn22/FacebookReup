@@ -12,24 +12,67 @@ using System.Net;
 using System.IO;
 using Facebook;
 using Newtonsoft.Json;
-using FacebookReup.Model;
 using System.Collections;
+using FacebookReup.Model;
 
 namespace FacebookReup
 {
     public partial class Form1 : Form
     {
+        List<Fanpage> listPage;
         public Form1()
         {
             InitializeComponent();
-            richTextBox1.Text= postFacebook();
-        }
-        public string postFacebook()
-        {
-            FacebookClient client = new FacebookClient("EAAEHSNbqyKEBAOwZAAA12bBiBDbe6Qo3ZCmOZARlcdeUoS3nz1ZANCvKWK8safPOBvtC5svtXTUw2VOVuMtvqodB9mPSa7LM0AWh49kEZBZCXXKp06gXXdlQx6isqaal8hHrYssuevnmiXRIeX0xtd1E8hVp9H2NET3gD1pGmCdcZCSYjF9chUWmjtHYAdXqnWdjcjTY54d7TZCARygvcZANIoB46aaaybn1UTnK24L80nQZDZD");
-            client.AppId = "289484401461409";
-            client.AppSecret = "eDuVD2C1Iq2bbhc9sYiQBvsMSr4";
             
+            //listPage = getListFanpge("1968895833375350", "0MO_iuADl5IWkXEUvfrENWGwdYU", "EAAbZBs0iZCgnYBAMpPK1EqYT8JW0RftRlMYCWIZCRZBG9ScOZBcffEkWebGcli48zNOII1TKVZB2pL9reiRIx6b27U2na9a6wMTPLVAPj9fCgHd4rPKqIrL1wFV8JKgx1z3rTBofNpqHUgUZCiFb1qnjrKf2LUwnlz8Tuhbg7Tyq8wgSehMNF0B5XQgHzKsErDa45lUXIbVAgejuWnVzwZCbZCYAnjoalazpNbbyTZCPZBVBQZDZD");
+           // dataGridView1.DataSource = listPage.ToList();
+            
+           //postAllFanpge(listPage);
+            //up load image to group
+            //   UploadPictureToGroup("926680707374301", "EAAEHSNbqyKEBAHfqsAZAe252wOcHs1xNjBqhuozYIh8ZCwqvSsK0K3PkeztJk1jfzeZCX6Cll20XEcveCl1pRhrZBZCpX7rPaTiZCfTyW6EwSRqXx2y14FSlfWjyiCK8K83OOVAJZC6FSlhMBGSgtr1OEh1IKhO2O2nEaRwvR2TscvyG9D8FDBZBGwZAdbnF9OUsZD", "C:/a.jpg");
+            //  UploadVideoFromUrl("578337095953266", "EAAEHSNbqyKEBAAZCEANZAZAXMKWB4f9ndyeGV8N1iDETPoBpDrC7Wq4877A3XWFK9YvwsvAex4sFxomHSR9r4Kk9IrfaNE8dw7bsSGKan2mo1gqIcXJLpkNJbWu4dNtnuc6Eq1pjyqkKZC3B1Ic9SbHjyqVB9ZBXlvMDZAZAYZBCnT5zuymNSZAFZB", "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4");
+            //upload video to fanpage va image
+            //UploadVideoToWall("578337095953266", "EAAEHSNbqyKEBAAZCEANZAZAXMKWB4f9ndyeGV8N1iDETPoBpDrC7Wq4877A3XWFK9YvwsvAex4sFxomHSR9r4Kk9IrfaNE8dw7bsSGKan2mo1gqIcXJLpkNJbWu4dNtnuc6Eq1pjyqkKZC3B1Ic9SbHjyqVB9ZBXlvMDZAZAYZBCnT5zuymNSZAFZB", "C:/a.mp4");
+            //UploadPictureToWall("578337095953266", "EAAbZBs0iZCgnYBALDKeIp6VKfLGHZCvYgqihyUq5jLqsbfxyZAG7yZBIpifARYNcFqX1UZCOIIZCSoTZCL5XlBbZC77mQFiQaDEdE5vEuyDzvYbah6U1qaBXP8ZBcY1wR4VC7UdXoPirhv2JPpqTuMTk8fDG82dJp35JKSm0xnuyz9drWzsELhhOsFrgXhzZBGRZAYajZA0iNdeqABgZDZD", "C:/a.jpg");
+           // richTextBox1.Text= postFacebook("EAAEHSNbqyKEBAHfrJ3HeVvaKrJMGwo4gTZBKDSVXZCc9FGJkwCezdAHZAQMJ8fmfnLNQath40BuEpXYFm6NXUJbXgEF3Axv77DYpiicxMBM1YXiMSfRYEGJIfdvkFVEKqLwqVVA1zLMcGlZCB4E1jX65ZCYK9I0QZD");
+        }
+        public List<Fanpage> getListFanpge(string idApp,string idScret,string accessToken)
+        {
+            listPage = new List<Fanpage>();
+            FacebookClient client = new FacebookClient(accessToken);
+            client.AppId = idApp;
+            client.AppSecret = idScret;
+            String json = client.Get("me/accounts?field=id,name,access_token").ToString();
+            var root = JsonConvert.DeserializeObject<RootObject>(json);
+            foreach (var item in root.data)
+            {
+                listPage.Add(new Fanpage
+                            {
+                            id = item.id,
+                            name = item.name,
+                            accessToken = item.access_token
+                            }
+                   );
+            }
+            return listPage;
+
+        }
+        public void postAllFanpge(List<Fanpage> listPage)
+        {
+            foreach (var fanpage in listPage)
+            {
+               // UploadPictureToWall(fanpage.id, fanpage.accessToken, "C:/a.jpg");
+                UploadVideoFromUrl(fanpage.id,fanpage.accessToken, "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4");
+            }
+        }
+
+
+        public string postFacebook(string CurrentAccessToken)
+        {
+
+            FacebookClient client = new FacebookClient(CurrentAccessToken);
+            client.AppId = "1968895833375350";
+            client.AppSecret = "0MO_iuADl5IWkXEUvfrENWGwdYU";
             
             Dictionary<string, object> para = new Dictionary<string, object>();
             para["message"] = "Test message";
@@ -37,30 +80,204 @@ namespace FacebookReup
             
             String json = client.Get("me/accounts?fields=id,name,access_token").ToString();
             var root = JsonConvert.DeserializeObject<RootObject>(json);
-            
+            dataGridView1.DataSource = root.data.ToList();
             
             foreach (var item in root.data)
             {
+                Fanpage fanpage = new Fanpage();
+                fanpage.id = item.id.ToString();
+                fanpage.name = item.name.ToString();
+                fanpage.accessToken = item.access_token.ToString();
+
+                listPage.Add(fanpage);
+
+                
                 txtID.Text += item.id.ToString();
                 txtPass.Text += item.name.ToString();
-                
-
+               
             }
-            
-            
+     
             return client.Get("me/accounts?fields=id,name,access_token").ToString();
             
 
            
 
         }
-       
+        public void upDataFanpgeToDataBase(string CurrentAccessToken)
+        {
+            
+            FacebookClient client = new FacebookClient(CurrentAccessToken);
+            client.AppId = "289484401461409";
+            client.AppSecret = "eDuVD2C1Iq2bbhc9sYiQBvsMSr4";
+
+
+            Dictionary<string, object> para = new Dictionary<string, object>();
+            para["message"] = "Test message";
+
+
+            String json = client.Get("me/accounts?fields=id,name,access_token").ToString();
+            var root = JsonConvert.DeserializeObject<RootObject>(json);
+            DataTable dt = new DataTable();
+            dataGridView1.DataSource = root.data.ToList();
+        }
+        // upload video to fanpage
+        public static string UploadVideoToWall(string id, string accessToken, string filePath)
+        {
+            var mediaObject = new FacebookMediaObject
+            {
+                FileName = System.IO.Path.GetFileName(filePath),
+                ContentType = "image/mp4"
+
+            };
+            mediaObject.SetValue(System.IO.File.ReadAllBytes(filePath));
+            try
+            {
+                var fb = new FacebookClient(accessToken);
+                
+
+                var result = (IDictionary<string, object>)fb.Post(id + "/videos", new Dictionary<string, object>
+                                   {
+                                       { "source", mediaObject },
+                                       { "message","videos" }
+                                   });
+
+                var postId = (string)result["id"];
+
+                Console.WriteLine("Post Id: {0}", postId);
+
+                // Note: This json result is not the orginal json string as returned by Facebook.
+                Console.WriteLine("Json: {0}", result.ToString());
+
+                return postId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        // upload image to fanpage
+        public static string UploadPictureToWall(string id, string accessToken, string filePath)
+        {
+            var mediaObject = new FacebookMediaObject
+            {
+
+                FileName = System.IO.Path.GetFileName(filePath),
+                ContentType = "image/jpeg"
+                
+
+            };
+            mediaObject.SetValue(System.IO.File.ReadAllBytes(filePath));
+            try
+            {
+                var fb = new FacebookClient(accessToken);
+
+                var result = (IDictionary<string, object>)fb.Post(id + "/photos", new Dictionary<string, object>
+                                   {
+                                       { "source", mediaObject },
+                                       { "message","photo" }
+                                   });
+
+                var postId = (string)result["id"];
+
+                Console.WriteLine("Post Id: {0}", postId);
+
+                // Note: This json result is not the orginal json string as returned by Facebook.
+                Console.WriteLine("Json: {0}", result.ToString());
+
+                return postId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        // upload video from url
+        public static string UploadVideoFromUrl(string id, string accessToken, string url)
+        {
+            
+            try
+            {
+                var fb = new FacebookClient(accessToken);
+
+                var result = (IDictionary<string, object>)fb.Post(id + "/videos", new Dictionary<string, object>
+                                   {
+                                       { "file_url", url },
+                                       {"start_offset","10"},
+                                       {"end_offset","20" },
+                                       { "message","videos" }
+                                   });
+
+                var postId = (string)result["id"];
+
+                Console.WriteLine("Post Id: {0}", postId);
+
+                // Note: This json result is not the orginal json string as returned by Facebook.
+                Console.WriteLine("Json: {0}", result.ToString());
+
+                return postId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        // upload image to group
+        public static string UploadPictureToGroup(string id, string accessToken, string filePath)
+        {
+            var mediaObject = new FacebookMediaObject
+            {
+
+                FileName = System.IO.Path.GetFileName(filePath),
+                ContentType = "image/jpeg"
+
+
+            };
+            mediaObject.SetValue(System.IO.File.ReadAllBytes(filePath));
+            try
+            {
+                var fb = new FacebookClient(accessToken);
+
+                var result = (IDictionary<string, object>)fb.Post(id + "/photos", new Dictionary<string, object>
+                                   {
+                                       { "source", mediaObject },
+                                       { "message","photo" }
+                                   });
+
+                var postId = (string)result["id"];
+
+                Console.WriteLine("Post Id: {0}", postId);
+
+                // Note: This json result is not the orginal json string as returned by Facebook.
+                Console.WriteLine("Json: {0}", result.ToString());
+
+                return postId;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void postToFanPage(string idFanpage,string message)
+        {
+            //
+            FacebookClient client = new FacebookClient("");
+        }
+        public void getAcessFanPage(string idFanpge)
+        {
+
+        }
 
         //public static string RefreshTokenAndPostToFacebook(string currentAccessToken)
         //{
         //    string newAccessToken = RefreshAccessToken(currentAccessToken);
         //    string pageAccessToken = GetPageAccessToken(newAccessToken);
-        //    PostToFacebook(pageAccessToken);
+        //    PostToFacebook(pageAccessToken);oad 
         //    return newAccessToken; // replace current access token with this
         //}
 
