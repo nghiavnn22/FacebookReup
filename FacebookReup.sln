@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookReup", "FacebookReup\FacebookReup.csproj", "{F180EBBC-9419-4B96-AFDA-4D06FCC771D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{D1E979FB-918D-4B37-8230-B2BDC8203433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTest", "SeleniumTest\SeleniumTest.csproj", "{5C3FD8A3-ECC2-4819-8EC5-CDB7E139ECFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F180EBBC-9419-4B96-AFDA-4D06FCC771D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F180EBBC-9419-4B96-AFDA-4D06FCC771D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F180EBBC-9419-4B96-AFDA-4D06FCC771D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1E979FB-918D-4B37-8230-B2BDC8203433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E979FB-918D-4B37-8230-B2BDC8203433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E979FB-918D-4B37-8230-B2BDC8203433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E979FB-918D-4B37-8230-B2BDC8203433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3FD8A3-ECC2-4819-8EC5-CDB7E139ECFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3FD8A3-ECC2-4819-8EC5-CDB7E139ECFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3FD8A3-ECC2-4819-8EC5-CDB7E139ECFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3FD8A3-ECC2-4819-8EC5-CDB7E139ECFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

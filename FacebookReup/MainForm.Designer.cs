@@ -55,6 +55,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnFile = new System.Windows.Forms.Button();
             this.labelTypeFile = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,9 +95,9 @@
             this.IDAPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IDAPP.Location = new System.Drawing.Point(767, 53);
             this.IDAPP.Name = "IDAPP";
-            this.IDAPP.Size = new System.Drawing.Size(67, 20);
+            this.IDAPP.Size = new System.Drawing.Size(18, 20);
             this.IDAPP.TabIndex = 3;
-            this.IDAPP.Text = "ID APP";
+            this.IDAPP.Text = "z";
             // 
             // label5
             // 
@@ -104,9 +105,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(484, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 20);
+            this.label5.Size = new System.Drawing.Size(18, 20);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Access Token";
+            this.label5.Text = "z";
             // 
             // label6
             // 
@@ -124,9 +125,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(494, 99);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 20);
+            this.label7.Size = new System.Drawing.Size(18, 20);
             this.label7.TabIndex = 6;
-            this.label7.Text = "label7";
+            this.label7.Text = "z";
             // 
             // label8
             // 
@@ -134,9 +135,10 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(742, 99);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 20);
+            this.label8.Size = new System.Drawing.Size(18, 20);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Screct APP";
+            this.label8.Text = "z";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // txtEmail
             // 
@@ -288,11 +290,20 @@
             this.labelTypeFile.TabIndex = 25;
             this.labelTypeFile.Text = "Type File";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(638, 159);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 26;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 613);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelTypeFile);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.label2);
@@ -356,5 +367,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnFile;
         private System.Windows.Forms.Label labelTypeFile;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

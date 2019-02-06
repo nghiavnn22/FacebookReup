@@ -11,5 +11,6 @@ namespace FacebookReup.Model
         public string id { get; set; }
         public string name { get; set; }
         public string accessToken { get; set; }
+        public string fancount { get; set; }
     }
 }

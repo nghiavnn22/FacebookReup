@@ -20,7 +20,10 @@ namespace FacebookReup
     {
         public MainForm()
         {
+            
             InitializeComponent();
+            getAcessToken();
+            // getFancount("523454094512122", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
             dataGridViewPage.DataSource = getListFanpge("1968895833375350", "0MO_iuADl5IWkXEUvfrENWGwdYU", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
         }
 
@@ -36,7 +39,15 @@ namespace FacebookReup
            // string accesstoken = txtAccessToken.Text.ToString();
        //     dataGridViewPage.DataSource = getListFanpge("1968895833375350", "0MO_iuADl5IWkXEUvfrENWGwdYU", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
         }
-
+        public string getFanCount(string idfanpage,string idApp,string idScret, string accessToken)
+        {
+            FacebookClient c = new FacebookClient(accessToken);
+            c.AppId = idApp;
+            c.AppSecret = idScret;
+            string json = c.Get(idfanpage+"?fields=fan_count").ToString() ;
+            
+            return json;
+        }
         public List<Fanpage> getListFanpge(string idApp, string idScret, string accessToken)
         {
             List<Fanpage> listPage = new List<Fanpage>();
@@ -47,23 +58,46 @@ namespace FacebookReup
             var root = JsonConvert.DeserializeObject<RootObject>(json);
             foreach (var item in root.data)
             {
+                dynamic stuff = JsonConvert.DeserializeObject(getFanCount(item.id, idApp, idScret, accessToken));
+                string fancount1 = stuff.fan_count;
+                
+                
+                getFanCount(item.id, idApp, idScret, accessToken);
                 listPage.Add(new Fanpage
                 {
                     id = item.id,
                     name = item.name,
-                    accessToken = item.access_token
-                }
+                    accessToken = item.access_token,
+                    fancount = fancount1.ToString()
+                   
+
+            }
                    );
             }
             return listPage;
 
+        }
+        public void getAcessToken()
+        {
+            var fb = new FacebookClient();
+            dynamic result = fb.Get("oauth/access_token", new
+            {
+                client_id = "1968895833375350",
+                client_secret = "fc6a11e0d7d24dca7eb86451ef73b031",
+                grant_type = "client_credentials"
+            });
+            fb.AccessToken = result.access_token;
+            MessageBox.Show(result.access_token);
         }
 
         private void btnReup_Click(object sender, EventArgs e)
         {
             List<Fanpage> listPage = getListFanpge("1968895833375350", "0MO_iuADl5IWkXEUvfrENWGwdYU", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
             string filePath = btnFile.Text.ToString();
-            string message = richtxtMessage.ToString();
+            string message = richtxtMessage.Text.ToString();
+            DateTime datetime = dateTimePicker1.Value;
+            string time = ((DateTimeOffset)datetime).ToUnixTimeSeconds().ToString();
+            
             if (labelTypeFile.Text.ToString()==".jpg"|| labelTypeFile.Text.ToString() == ".img")
             {
                 foreach (var page in listPage)
@@ -77,7 +111,7 @@ namespace FacebookReup
             {
                 foreach (var page in listPage)
                 {
-                    upVideoToFanpage(page, filePath, message);
+                    upVideoToFanpage(page, filePath, message, time);
                 }
             }
             
@@ -86,7 +120,7 @@ namespace FacebookReup
 
 
         }
-        public void upVideoToFanpage(Fanpage fanpage, string filePath, string message)
+        public void upVideoToFanpage(Fanpage fanpage, string filePath, string message,string time)
         {
             {
                 var mediaObject = new FacebookMediaObject
@@ -100,8 +134,11 @@ namespace FacebookReup
                     var fb = new FacebookClient(fanpage.accessToken);
                     var result = (IDictionary<string, object>)fb.Post(fanpage.id + "/videos", new Dictionary<string, object>
                                    {
-                                       { "source", mediaObject },
-                                       { "message",message}
+                                         { "source", mediaObject },
+                                        {"published","false" },
+                                        {"scheduled_publish_time",time},
+                                        { "description",message}
+                                       
                                    });
                     var postId = (string)result["id"];
 
@@ -117,9 +154,8 @@ namespace FacebookReup
                 }
             }
         }
-
-
-
+       // 523454094512122/?fields=fan_count
+        
 
         public void upImageToFanpage(Fanpage fanpage,string filePath,string message)
         {
@@ -138,7 +174,7 @@ namespace FacebookReup
 
                     var result = (IDictionary<string, object>)fb.Post(fanpage.id + "/photos", new Dictionary<string, object>
                                    {
-                                       { "source", mediaObject },
+                                      { "source", mediaObject },
                                        { "message",message}
                                    });
 
@@ -178,6 +214,11 @@ namespace FacebookReup
                 btnFile.Text = filename;
                 labelTypeFile.Text = Path.GetExtension(filename);
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
