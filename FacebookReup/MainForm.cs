@@ -22,7 +22,7 @@ namespace FacebookReup
         {
             
             InitializeComponent();
-            getAcessToken();
+           // getAcessToken();
             // getFancount("523454094512122", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
             dataGridViewPage.DataSource = getListFanpge("1968895833375350", "0MO_iuADl5IWkXEUvfrENWGwdYU", "EAAbZBs0iZCgnYBABwVKWCt8YlJ0m3cpvtnRPOrkkN2Au8K9UJXMRNJgi2jmrvLGsADmvBMs1ySVEwaIFjfG2Xmo1formnwTOXady1lyxCqAvmGCUuRrNdXEBLbRHUtyZAGCmVSiZCOvHxPvjB39nKBrK4FglsdsqpBnNFPDuKwZDZD");
         }
