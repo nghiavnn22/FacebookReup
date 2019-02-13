@@ -28,26 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.PassWord = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.IDAPP = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtAccessToken = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtLinkReup = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.txtIDAPP = new System.Windows.Forms.TextBox();
-            this.txtScrectApp = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnReup = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewPage = new System.Windows.Forms.DataGridView();
             this.checkBoxReup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.richtxtMessage = new System.Windows.Forms.RichTextBox();
@@ -56,182 +38,23 @@
             this.btnFile = new System.Windows.Forms.Button();
             this.labelTypeFile = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelThongBao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Email";
-            // 
-            // PassWord
-            // 
-            this.PassWord.AutoSize = true;
-            this.PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassWord.Location = new System.Drawing.Point(236, 53);
-            this.PassWord.Name = "PassWord";
-            this.PassWord.Size = new System.Drawing.Size(86, 20);
-            this.PassWord.TabIndex = 1;
-            this.PassWord.Text = "Password";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Link Reup";
-            // 
-            // IDAPP
-            // 
-            this.IDAPP.AutoSize = true;
-            this.IDAPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDAPP.Location = new System.Drawing.Point(767, 53);
-            this.IDAPP.Name = "IDAPP";
-            this.IDAPP.Size = new System.Drawing.Size(18, 20);
-            this.IDAPP.TabIndex = 3;
-            this.IDAPP.Text = "z";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(484, 53);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(18, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "z";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(236, 88);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 20);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Kieu Video";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(494, 99);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 20);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "z";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(742, 99);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 20);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "z";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(130, 55);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtEmail.TabIndex = 9;
-            // 
-            // txtAccessToken
-            // 
-            this.txtAccessToken.Location = new System.Drawing.Point(611, 55);
-            this.txtAccessToken.Name = "txtAccessToken";
-            this.txtAccessToken.Size = new System.Drawing.Size(100, 20);
-            this.txtAccessToken.TabIndex = 10;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(357, 90);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 11;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(357, 53);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 20);
-            this.txtPassword.TabIndex = 12;
-            // 
-            // txtLinkReup
-            // 
-            this.txtLinkReup.Location = new System.Drawing.Point(130, 133);
-            this.txtLinkReup.Name = "txtLinkReup";
-            this.txtLinkReup.Size = new System.Drawing.Size(315, 20);
-            this.txtLinkReup.TabIndex = 13;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(611, 99);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 14;
-            // 
-            // txtIDAPP
-            // 
-            this.txtIDAPP.Location = new System.Drawing.Point(848, 53);
-            this.txtIDAPP.Name = "txtIDAPP";
-            this.txtIDAPP.Size = new System.Drawing.Size(100, 20);
-            this.txtIDAPP.TabIndex = 15;
-            // 
-            // txtScrectApp
-            // 
-            this.txtScrectApp.Location = new System.Drawing.Point(848, 99);
-            this.txtScrectApp.Name = "txtScrectApp";
-            this.txtScrectApp.Size = new System.Drawing.Size(100, 20);
-            this.txtScrectApp.TabIndex = 16;
             // 
             // btnReup
             // 
-            this.btnReup.Location = new System.Drawing.Point(545, 131);
+            this.btnReup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReup.Location = new System.Drawing.Point(533, 134);
             this.btnReup.Name = "btnReup";
             this.btnReup.Size = new System.Drawing.Size(75, 44);
             this.btnReup.TabIndex = 17;
             this.btnReup.Text = "Reup";
             this.btnReup.UseVisualStyleBackColor = true;
             this.btnReup.Click += new System.EventHandler(this.btnReup_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1095, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 44);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1014, 90);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 44);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(1095, 88);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 44);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // dataGridViewPage
             // 
@@ -245,11 +68,12 @@
             // 
             // checkBoxReup
             // 
-            this.checkBoxReup.HeaderText = "CheckBox";
+            this.checkBoxReup.HeaderText = "Chọn Page";
             this.checkBoxReup.Name = "checkBoxReup";
             // 
             // richtxtMessage
             // 
+            this.richtxtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richtxtMessage.Location = new System.Drawing.Point(130, 159);
             this.richtxtMessage.Name = "richtxtMessage";
             this.richtxtMessage.Size = new System.Drawing.Size(366, 72);
@@ -272,9 +96,10 @@
             // 
             // btnFile
             // 
-            this.btnFile.Location = new System.Drawing.Point(545, 184);
+            this.btnFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFile.Location = new System.Drawing.Point(502, 184);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(75, 47);
+            this.btnFile.Size = new System.Drawing.Size(138, 47);
             this.btnFile.TabIndex = 24;
             this.btnFile.Text = "Mo File";
             this.btnFile.UseVisualStyleBackColor = true;
@@ -292,81 +117,85 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.CustomFormat = "yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePicker1.Location = new System.Drawing.Point(638, 159);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 26;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(130, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Info;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(419, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 24);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Thông báo:";
+            // 
+            // labelThongBao
+            // 
+            this.labelThongBao.AutoSize = true;
+            this.labelThongBao.BackColor = System.Drawing.SystemColors.Info;
+            this.labelThongBao.Font = new System.Drawing.Font("Franklin Gothic Medium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelThongBao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelThongBao.Location = new System.Drawing.Point(545, 29);
+            this.labelThongBao.Name = "labelThongBao";
+            this.labelThongBao.Size = new System.Drawing.Size(162, 24);
+            this.labelThongBao.TabIndex = 29;
+            this.labelThongBao.Text = "Chưa đăng bài nào";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 613);
+            this.Controls.Add(this.labelThongBao);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.labelTypeFile);
             this.Controls.Add(this.btnFile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richtxtMessage);
             this.Controls.Add(this.dataGridViewPage);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnReup);
-            this.Controls.Add(this.txtScrectApp);
-            this.Controls.Add(this.txtIDAPP);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.txtLinkReup);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.txtAccessToken);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.IDAPP);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.PassWord);
-            this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Tool Reup Facebook";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label PassWord;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label IDAPP;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtAccessToken;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtLinkReup;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox txtIDAPP;
-        private System.Windows.Forms.TextBox txtScrectApp;
         private System.Windows.Forms.Button btnReup;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridView dataGridViewPage;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxReup;
         private System.Windows.Forms.RichTextBox richtxtMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnFile;
         private System.Windows.Forms.Label labelTypeFile;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxReup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelThongBao;
     }
 }
