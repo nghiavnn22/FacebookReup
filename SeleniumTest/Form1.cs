@@ -18,6 +18,7 @@ namespace SeleniumTest
         public Form1()
         {
             InitializeComponent();
+            //setCookie();
             IWebDriver driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://m.facebook.com/");
@@ -29,21 +30,22 @@ namespace SeleniumTest
             loginsubmit.Submit();
             var cookies = driver.Manage().Cookies.AllCookies;
             List<Cookie> list = cookies.ToList();
-            
-            //xoa toan bo cookie
-            driver.Manage().Cookies.DeleteAllCookies();
             driver.Navigate().GoToUrl("https://m.facebook.com/");
-            foreach (Cookie cookie in list)
-            {
-                driver.Manage().Cookies.AddCookie(cookie);
-            }
-            driver.Navigate().GoToUrl("https://m.facebook.com/");
-            //foreach (var cookie in cookies)
+
+            ////xoa toan bo cookie
+            //driver.Manage().Cookies.DeleteAllCookies();
+            //driver.Navigate().GoToUrl("https://m.facebook.com/");
+            //foreach (Cookie cookie in list)
             //{
-            //    Console.Write(cookie.Name + "=");
-            //    Console.WriteLine(cookie.Value + ";");
             //    driver.Manage().Cookies.AddCookie(cookie);
             //}
+            //driver.Navigate().GoToUrl("https://m.facebook.com/");
+            foreach (var cookie in cookies)
+            {
+                Console.Write(cookie.Name + "=");
+                Console.WriteLine(cookie.Value + ";");
+                driver.Manage().Cookies.AddCookie(cookie);
+            }
             //driver.Navigate().GoToUrl("https://m.facebook.com/");
 
 

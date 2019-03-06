@@ -220,7 +220,6 @@ namespace FacebookReup
                 catch (Exception)
                 {
                     Application.Exit();
-                    System.Diagnostics.Process.Start(Application.ExecutablePath);
                     //throw;
                 }
             }
@@ -243,7 +242,7 @@ namespace FacebookReup
                 string filename = openfileDialog2.FileName;
                 btnFile.Text = filename;
                 labelTypeFile.Text = Path.GetExtension(filename);
-                //pictureBox1.Image = Image.FromFile(filename);
+                pictureBox1.Image = Image.FromFile(filename);
             }
             
         }
